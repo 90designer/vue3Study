@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/home.js',
   output:{
     // filename:'[name][hash:10].js',
     filename:'[name].js',
@@ -49,9 +49,9 @@ module.exports = {
     ]
   },
   plugins:[
-    new HtmlWebpackPlugin({
-      template:'./src/index.html'
-    }),
+    // new HtmlWebpackPlugin({
+    //   template:'./src/index.html'
+    // }),
     new MiniCssExtractPlugin({
       filename: 'css/index.css'
     }),
@@ -65,5 +65,6 @@ module.exports = {
     port: 3001,
     compress: true, // 打包压缩
     open:true,
+    hot:true, // 开启热更新
   }
 }

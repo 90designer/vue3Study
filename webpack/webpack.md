@@ -47,3 +47,13 @@
 > webpack5 的方式：webpack serve [--port] [--open] [--hot] 等等
 > 可在 package.json 中的 script 里配置命令，使用 npm run xxx 运行
 > 还可以在 webpack.config.js 中配置 devServer:{}
+
+### webpack 通过 tree-shaking 去掉实际没有使用的 js 代码
+
+> 1. 必须使用 es6 模块化语法
+> 2. 必须开启 production 环境
+
+### purgecss-webpack-plugin 减少没有使用的 css 样式的引入
+
+> 1. es6 或者 commonJs 方式都可以
+> 2. 一般都是 production 环境
