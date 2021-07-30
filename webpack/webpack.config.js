@@ -39,12 +39,12 @@ module.exports = {
       {
         test:/\.less$/,
         // 先用less-loader解析，再用css-loader打包，再用 MiniCssExtractPlugin.loader打包单独文件，并引入。
-        use:[ MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+        use:[ MiniCssExtractPlugin.loader, 'css-loader', 'less-loader','postcss-loader'],
       },
       {
         test:/\.scss$/,
         // 先用less-loader解析，再用css-loader打包，再用style-loader引入到head的style中。
-        use:['style-loader', 'css-loader', 'sass-loader'],
+        use:['style-loader', 'css-loader', 'sass-loader','postcss-loader'],
       }
     ]
   },
@@ -56,4 +56,14 @@ module.exports = {
       filename: 'css/index.css'
     }),
   ],
+
+  // 在webpack5版本中，需要添加次配置项，devServe才可以自动打开打包文件
+  target:"web",
+
+  // 在package.json或者此处进行配置
+  devServer:{
+    port: 3001,
+    compress: true, // 打包压缩
+    open:true,
+  }
 }
